@@ -1,0 +1,7 @@
+.container {
+  background-color: aquamarine;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+}

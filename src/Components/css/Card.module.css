@@ -1,6 +1,5 @@
 .container {
-  background: url("https://web.learncodeonline.in/static/g1-ab1d75af935ef6d6aa92891c1b4cb51b.jpg")
-    no-repeat;
+  /* background: url("https://web.learncodeonline.in/static/g1-ab1d75af935ef6d6aa92891c1b4cb51b.jpg") */
   background-repeat: no-repeat;
   background-size: 36vh 300px;
   height: 300px;
@@ -18,4 +17,5 @@
   align-items: center;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+  color: black;
 }

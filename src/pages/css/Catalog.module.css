@@ -1,0 +1,33 @@
+.container {
+  /* background-color: aqua; */
+  min-height: 120vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.left {
+  flex: 0.2;
+  /* background-color: blueviolet; */
+}
+
+.right {
+  flex: 0.8;
+  /* background-color: burlywood; */
+}
+
+.title {
+  /* background-color: aquamarine; */
+  text-align: center;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  grid-auto-columns: 50px;
+  /* flex-direction: row; */
+}

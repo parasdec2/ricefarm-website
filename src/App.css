@@ -2,3 +2,24 @@
   height: 50px;
   pointer-events: none;
 }
+.animate__animated.animate__flipInX {
+  --animate-duration: 2000ms;
+  --animate-delay: 2s;
+}
+.collapse-button {
+  display: block;
+  /* width: 100%; */
+}
+
+.collapse-content.collapsed {
+  display: none;
+}
+
+.collapsed-content.expanded {
+  display: block;
+}
+
+.abc {
+  display: flex;
+  flex-direction: row;
+}

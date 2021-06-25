@@ -2,8 +2,37 @@ import styles from "./css/Home.module.css";
 import Card from "../Components/Card";
 import video720 from "../video720.mp4";
 import NavBar from "../Components/NavBar";
+import MobileNav from "../Components/MobileNav";
+import { useState } from "react";
+import punjab1 from "../punjab1.jpg";
+import punjab2 from "../punjab2.jpg";
+import ekam from "../ekam.jpg";
 
 function Home() {
+  const [navOpen, setNavOpen] = useState(false);
+  const products = [
+    {
+      name: "Punjab 1121 Steam Basmati Rice",
+      category: "Steam",
+      type: "xxl",
+      quantity: "39 Kg",
+      image: punjab1,
+    },
+    {
+      name: "Ekam 1121 Sella Basmati Rice",
+      category: "Sella",
+      type: "xxl",
+      quantity: "10 Kg",
+      image: ekam,
+    },
+    {
+      name: "Punjab 1121 Steam Basmati Rice",
+      category: "Steam",
+      type: "xxl",
+      quantity: "39 Kg",
+      image: punjab2,
+    },
+  ];
   return (
     <div className={styles.container}>
       <video
@@ -17,9 +46,17 @@ function Home() {
         <source src={video720} type="video/mp4" />
       </video>
       <div className={styles.content}>
-        <NavBar />
-        <div className={styles.header}>
-          <h1 class="animate__animated animate__flipInX">COMPANY NAME</h1>
+        {/* <NavBar home /> */}
+        <MobileNav menu={setNavOpen} />
+        <div
+          className={styles.header}
+          style={navOpen ? { marginTop: "300px" } : {}}
+        >
+          <h1 className="animate__animated animate__flipInX">
+            <span className={styles.gradientText}>
+              Punjab food stuff trading l.l.c
+            </span>
+          </h1>
         </div>
         <div className={styles.about}>
           <h2>What we are?</h2>
@@ -34,9 +71,9 @@ function Home() {
           <h2>What do we have?</h2>
           <p>Our Top selling items</p>
           <div className={styles.productContainer}>
-            <Card />
-            <Card />
-            <Card />
+            {products.map((product, key) => (
+              <Card item={product} id={key} />
+            ))}
           </div>
         </div>
         <div className={styles.reach}>
