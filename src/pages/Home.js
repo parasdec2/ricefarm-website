@@ -1,10 +1,6 @@
 import { useState } from "react";
 import styles from "./css/Home.module.css";
 import { MobileNav, ContactUs, Card } from "../Components/index";
-import punjab1 from "../punjab1.jpg";
-import punjab2 from "../punjab2.jpg";
-import ekam from "../ekam.jpg";
-import video720 from "../video720.mp4";
 
 function Home() {
   const [navOpen, setNavOpen] = useState(false);
@@ -14,21 +10,24 @@ function Home() {
       category: "Steam",
       type: "xxl",
       quantity: "39 Kg",
-      image: punjab1,
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8777.JPG?alt=media&token=b540b76d-c564-454a-bc56-0dfe42a1b89e",
     },
     {
       name: "Ekam 1121 Sella Basmati Rice",
       category: "Sella",
       type: "xxl",
       quantity: "10 Kg",
-      image: ekam,
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8784.JPG?alt=media&token=bcba195a-fd13-4137-91e0-a7400bb95173",
     },
     {
       name: "Punjab 1121 Steam Basmati Rice",
       category: "Steam",
       type: "xxl",
       quantity: "39 Kg",
-      image: punjab2,
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8791.JPG?alt=media&token=c99d936b-5f80-46fb-84e2-4f57586d7b92",
     },
   ];
   return (
@@ -41,7 +40,10 @@ function Home() {
         loop
         className={styles.backgroundVideo}
       >
-        <source src={video720} type="video/mp4" />
+        <source
+          src="https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/background%2Fvideo720.mp4?alt=media&token=e67bae5f-0f16-45f7-831b-cfe4f9027359"
+          type="video/mp4"
+        />
       </video>
       <div className={styles.content}>
         <MobileNav menu={setNavOpen} />
