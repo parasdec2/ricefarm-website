@@ -1,14 +1,13 @@
-import styles from "./css/Catalog.module.css";
-import NavBar from "../Components/NavBar";
 import { useEffect, useState } from "react";
-import Product from "../Components/Product";
-import Products from "../Components/Products";
+import styles from "./css/Catalog.module.css";
+import { MobileNav, Products, ContactUs } from "../Components/index";
 import punjab1 from "../punjab1.jpg";
 import punjab2 from "../punjab2.jpg";
 import ekam from "../ekam.jpg";
 
 function Catalog() {
   const [selected, setSelected] = useState("");
+  const [navOpen, setNavOpen] = useState(false);
   const products = [
     {
       name: "Punjab 1121 Steam Basmati Rice",
@@ -100,31 +99,33 @@ function Catalog() {
     filter(category);
   };
   return (
-    <>
-      <NavBar />
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <div className={styles.left}>
-            <h1 className={styles.title}>Products</h1>
-            <h3>Varieties</h3>
-            <div>
-              {varieties.map((variety, index) => (
-                <ul onClick={() => updateSelected(variety)}>{variety}</ul>
-              ))}
-            </div>
-          </div>
-          <div className={styles.right}>
-            <h1 className={styles.title}>Catalog Page</h1>
-            {/* <div className={styles.products}>
-              {filteredProducts.map((item, index) => (
-                <Product item={item} key={index} />
-              ))}
-            </div> */}
-            <Products products={filteredProducts} />
+    <div className={styles.container}>
+      <MobileNav menu={setNavOpen} />
+      <div className={styles.content}>
+        <div
+          className={styles.left}
+          style={navOpen ? { marginTop: "300px" } : {}}
+        >
+          <h1 className={styles.title}>Products</h1>
+          <h3>Varieties</h3>
+          <div>
+            {varieties.map((variety, index) => (
+              <ul onClick={() => updateSelected(variety)}>{variety}</ul>
+            ))}
           </div>
         </div>
+        <div
+          className={styles.right}
+          style={navOpen ? { marginTop: "300px" } : {}}
+        >
+          <h1 className={styles.title}>Catalog Page</h1>
+          <Products products={filteredProducts} />
+        </div>
       </div>
-    </>
+      <div id="contactus">
+        <ContactUs />
+      </div>
+    </div>
   );
 }
 

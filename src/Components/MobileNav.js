@@ -28,10 +28,10 @@ function MobileNav({ menu }) {
           }}
         ></div>
         <div id="myLinks">
-          <a href="">Home</a>
-          <a href="">Products</a>
-          <a href="">About</a>
-          <a href="">Contact Us</a>
+          <a href="/">Home</a>
+          <a href="/catalog">Products</a>
+          <a href="/aboutus">About</a>
+          <a href="#contactus">Contact Us</a>
         </div>
         <div className={change ? "icon" : "icon change"} onClick={myFunction}>
           <div className="bar1"></div>

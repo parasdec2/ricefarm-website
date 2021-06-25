@@ -1,0 +1,25 @@
+.container {
+  min-height: 120vh;
+}
+
+.content {
+  padding: 20px;
+}
+
+.mainContent {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  /* background-color: aquamarine; */
+  text-align: center;
+}
+
+.warehouse {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  grid-auto-columns: 50px;
+}
