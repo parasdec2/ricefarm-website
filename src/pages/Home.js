@@ -65,7 +65,7 @@ function Home() {
         <MobileNav menu={setNavOpen} contact={myRef} />
         <div
           className={styles.header}
-          style={navOpen ? { marginTop: "300px" } : {}}
+          style={navOpen ? { marginTop: "350px" } : {}}
         >
           {console.log(mobileDevice)}
           <h1 className="animate__animated animate__flipInX">

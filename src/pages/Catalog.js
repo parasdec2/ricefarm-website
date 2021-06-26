@@ -6,6 +6,15 @@ function Catalog() {
   const [selected, setSelected] = useState("");
   const [navOpen, setNavOpen] = useState(false);
   const myRef = useRef(null);
+  const [mobileDevice, setMobileDevice] = useState(true);
+
+  const hasWindow = typeof window !== "undefined";
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    if (width < 768) setMobileDevice(true);
+    else setMobileDevice(false);
+  }, [hasWindow]);
 
   const products = [
     {
@@ -64,7 +73,7 @@ function Catalog() {
       <div className={styles.content}>
         <div
           className={styles.left}
-          style={navOpen ? { marginTop: "300px" } : {}}
+          style={navOpen ? { marginTop: "350px" } : {}}
         >
           <h1 className={styles.title}>Products</h1>
           <div className={styles.varieties}>
@@ -92,7 +101,7 @@ function Catalog() {
         </div>
         <div
           className={styles.right}
-          style={navOpen ? { marginTop: "300px" } : {}}
+          style={navOpen && !mobileDevice ? { marginTop: "350px" } : {}}
         >
           <h1 className={styles.title}>Catalogue Page</h1>
           <Products products={filteredProducts} />

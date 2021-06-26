@@ -13,7 +13,7 @@ function About() {
       <div className={styles.content}>
         <div
           className={styles.mainContent}
-          style={navOpen ? { marginTop: "300px" } : {}}
+          style={navOpen ? { marginTop: "350px" } : {}}
         >
           <h1 className="animate__animated animate__fadeIn">
             About Our Company
