@@ -33,7 +33,7 @@ function About() {
               laudantium.
             </p>
           </div>
-          <div className={styles.workprocess}>
+          <div className={styles.heading}>
             <h3 className="animate__animated animate__fadeIn">Work Process:</h3>
             <p className="animate__animated animate__fadeIn">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
