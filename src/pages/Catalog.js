@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "./css/Catalog.module.css";
 import { MobileNav, Products, ContactUs } from "../Components/index";
 
 function Catalog() {
   const [selected, setSelected] = useState("");
   const [navOpen, setNavOpen] = useState(false);
+  const myRef = useRef(null);
+
   const products = [
     {
       name: "Punjab 1121 Steam Basmati Rice",
@@ -12,7 +14,7 @@ function Catalog() {
       type: "xxl",
       quantity: "39 Kg",
       image:
-        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8777.JPG?alt=media&token=b540b76d-c564-454a-bc56-0dfe42a1b89e",
+        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2Fpunjab1.png?alt=media&token=473669e2-c86f-48e0-94bd-44f9e3c9eade",
     },
     {
       name: "Ekam 1121 Sella Basmati Rice",
@@ -20,7 +22,7 @@ function Catalog() {
       type: "xxl",
       quantity: "10 Kg",
       image:
-        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8784.JPG?alt=media&token=bcba195a-fd13-4137-91e0-a7400bb95173",
+        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2Fekam.png?alt=media&token=00fa9677-af0e-4f75-bc3a-d07c039bf830",
     },
     {
       name: "Punjab 1121 Steam Basmati Rice",
@@ -28,55 +30,7 @@ function Catalog() {
       type: "xxl",
       quantity: "39 Kg",
       image:
-        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8791.JPG?alt=media&token=c99d936b-5f80-46fb-84e2-4f57586d7b92",
-    },
-    {
-      name: "Punjab 1121 Steam Basmati Rice",
-      category: "Steam",
-      type: "xxl",
-      quantity: "39 Kg",
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8777.JPG?alt=media&token=b540b76d-c564-454a-bc56-0dfe42a1b89e",
-    },
-    {
-      name: "Ekam 1121 Sella Basmati Rice",
-      category: "Sella",
-      type: "xxl",
-      quantity: "10 Kg",
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8784.JPG?alt=media&token=bcba195a-fd13-4137-91e0-a7400bb95173",
-    },
-    {
-      name: "Punjab 1121 Steam Basmati Rice",
-      category: "Steam",
-      type: "xxl",
-      quantity: "39 Kg",
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8791.JPG?alt=media&token=c99d936b-5f80-46fb-84e2-4f57586d7b92",
-    },
-    {
-      name: "Punjab 1121 Steam Basmati Rice",
-      category: "Steam",
-      type: "xxl",
-      quantity: "39 Kg",
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8777.JPG?alt=media&token=b540b76d-c564-454a-bc56-0dfe42a1b89e",
-    },
-    {
-      name: "Ekam 1121 Sella Basmati Rice",
-      category: "Sella",
-      type: "xxl",
-      quantity: "10 Kg",
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8784.JPG?alt=media&token=bcba195a-fd13-4137-91e0-a7400bb95173",
-    },
-    {
-      name: "Punjab 1121 Steam Basmati Rice",
-      category: "Steam",
-      type: "xxl",
-      quantity: "39 Kg",
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2FIMG_8791.JPG?alt=media&token=c99d936b-5f80-46fb-84e2-4f57586d7b92",
+        "https://firebasestorage.googleapis.com/v0/b/punjabfoodstufftrading.appspot.com/o/products%2Fpunjab2.png?alt=media&token=0419de31-62e6-474f-9062-669a58376379",
     },
   ];
 
@@ -106,18 +60,34 @@ function Catalog() {
   };
   return (
     <div className={styles.container}>
-      <MobileNav menu={setNavOpen} />
+      <MobileNav menu={setNavOpen} contact={myRef} />
       <div className={styles.content}>
         <div
           className={styles.left}
           style={navOpen ? { marginTop: "300px" } : {}}
         >
           <h1 className={styles.title}>Products</h1>
-          <h3>Varieties</h3>
-          <div>
-            {varieties.map((variety, index) => (
-              <ul onClick={() => updateSelected(variety)}>{variety}</ul>
-            ))}
+          <div className={styles.varieties}>
+            <h3>Varieties</h3>
+            <div className={styles.variety}>
+              {varieties.map((variety, index) => (
+                <p
+                  id={index}
+                  className={styles.varietyName}
+                  style={
+                    selected.toLowerCase() === variety.toLowerCase()
+                      ? {
+                          backgroundColor: "lightgreen",
+                          borderRadius: "20px",
+                        }
+                      : {}
+                  }
+                  onClick={() => updateSelected(variety)}
+                >
+                  <span>{variety}</span>
+                </p>
+              ))}
+            </div>
           </div>
         </div>
         <div
@@ -128,7 +98,7 @@ function Catalog() {
           <Products products={filteredProducts} />
         </div>
       </div>
-      <div id="contactus">
+      <div ref={myRef}>
         <ContactUs />
       </div>
     </div>

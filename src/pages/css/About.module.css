@@ -1,9 +1,20 @@
 .container {
   min-height: 120vh;
+  background: linear-gradient(
+    to bottom right,
+    #fff,
+    rgb(239, 252, 237),
+    #c2f8c2,
+    #9afd9a
+  );
+  margin-bottom: -50px;
+  padding-bottom: 5px;
 }
 
 .content {
   padding: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .mainContent {
@@ -12,9 +23,17 @@
   flex-direction: column;
 }
 
-.title {
-  /* background-color: aquamarine; */
+.mainContent h1 {
+  color: rgb(10, 73, 2);
+  font-size: 3.4rem;
   text-align: center;
+  font-family: "Viaoda Libre", cursive;
+}
+
+.heading h3 {
+  font-size: 2rem;
+  color: rgb(10, 73, 2);
+  font-family: "Viaoda Libre", cursive;
 }
 
 .warehouse {
@@ -22,4 +41,13 @@
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
   grid-auto-columns: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .mainContent h1 {
+    font-size: 2.4rem;
+  }
+  .heading h3 {
+    font-size: 1.5rem;
+  }
 }

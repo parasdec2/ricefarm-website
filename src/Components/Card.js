@@ -2,14 +2,10 @@ import styles from "./css/Card.module.css";
 
 function Card({ item }) {
   return (
-    <div
-      className={styles.container}
-      style={{
-        backgroundImage: `url(${item?.image})`,
-      }}
-    >
+    <div className={styles.container}>
+      <img src={item?.image} />
       <div className={styles.content}>
-        <h3>{item ? item.name : "Name"}</h3>
+        <h4>{item ? item.name : "Name"}</h4>
       </div>
     </div>
   );

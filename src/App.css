@@ -6,6 +6,12 @@
   --animate-duration: 2000ms;
   --animate-delay: 2s;
 }
+
+.animate__animated.animate__fadeIn {
+  --animate-duration: 3000ms;
+  /* --animate-delay: 20s; */
+}
+
 .collapse-button {
   display: block;
   /* width: 100%; */
@@ -22,6 +28,8 @@
 .reach {
   margin: 50px;
   padding: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .reachTitle {
@@ -46,4 +54,17 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.productMedia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .reachContent {
+    flex-direction: column;
+  }
 }

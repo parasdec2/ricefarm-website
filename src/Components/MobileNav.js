@@ -1,8 +1,10 @@
 import "./css/MobileNav.css";
 import logo from "../logo.svg";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-function MobileNav({ menu }) {
+function MobileNav({ menu, contact }) {
+  const history = useHistory();
   const [change, setChange] = useState(true);
   function myFunction() {
     setChange(!change);
@@ -15,23 +17,29 @@ function MobileNav({ menu }) {
       menu(true);
     }
   }
+  const executeScroll = () => {
+    myFunction();
+    contact.current.scrollIntoView();
+  };
   return (
     <div className="mobile-container">
       <div className="topnav">
         <div
+          onClick={() => history.push("/")}
           style={{
             backgroundImage: `url(${logo})`,
             backgroundRepeat: "no-repeat",
             height: "80px",
             width: "80px",
             objectFit: "cover",
+            cursor: "pointer",
           }}
         ></div>
         <div id="myLinks">
           <a href="/">Home</a>
           <a href="/catalog">Products</a>
           <a href="/aboutus">About</a>
-          <a href="#contactus">Contact Us</a>
+          <p onClick={executeScroll}>Contact Us</p>
         </div>
         <div className={change ? "icon" : "icon change"} onClick={myFunction}>
           <div className="bar1"></div>

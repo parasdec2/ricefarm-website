@@ -1,5 +1,5 @@
 import styles from "./css/Products.module.css";
-
+import ProductMedia from "./ProductMedia";
 function Products({ products }) {
   return (
     <main>
@@ -8,7 +8,7 @@ function Products({ products }) {
           {products.map((item, index) => (
             <div className={styles.productItem} tabindex="0" id={index}>
               <div className={styles.image}>
-                <img src={item.image} height="350px" width="350px" />
+                <ProductMedia images={item.image} />
               </div>
               <div className={styles.details}>
                 <table>

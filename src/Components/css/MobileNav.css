@@ -27,16 +27,22 @@
   display: none;
 }
 
-.topnav a {
+.topnav a,
+.topnav p {
   color: white;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
   display: block;
 }
-.topnav a:hover {
+.topnav a:hover,
+.topnav p:hover {
   background-color: #ddd;
   color: black;
+}
+
+.topnav p {
+  cursor: pointer;
 }
 
 .topnav .icon {
