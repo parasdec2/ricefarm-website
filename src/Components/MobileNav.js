@@ -37,7 +37,7 @@ function MobileNav({ menu, contact }) {
         ></div>
         <div id="myLinks">
           <a href="/">Home</a>
-          <a href="/catalog">Products</a>
+          <a href="/catalogue">Products</a>
           <a href="/aboutus">About</a>
           <p onClick={executeScroll}>Contact Us</p>
         </div>

@@ -94,7 +94,7 @@ function Catalog() {
           className={styles.right}
           style={navOpen ? { marginTop: "300px" } : {}}
         >
-          <h1 className={styles.title}>Catalog Page</h1>
+          <h1 className={styles.title}>Catalogue Page</h1>
           <Products products={filteredProducts} />
         </div>
       </div>
