@@ -11,24 +11,9 @@ function Products({ products }) {
                 <ProductMedia images={item.image} />
               </div>
               <div className={styles.details}>
-                <table>
-                  <tr>
-                    <td>Name</td>
-                    <td>{item.name}</td>
-                  </tr>
-                  <tr>
-                    <td>Category</td>
-                    <td>{item.category}</td>
-                  </tr>
-                  <tr>
-                    <td>Type</td>
-                    <td>{item.type}</td>
-                  </tr>
-                  <tr>
-                    <td>Quantity</td>
-                    <td>{item.quantity}</td>
-                  </tr>
-                </table>
+                <span style={{ textAlign: "center" }}>{item.name}</span>
+                <span style={{ textAlign: "center" }}>{item.category}</span>
+                <span style={{ textAlign: "center" }}>{item.quantity}</span>
               </div>
             </div>
           ))}

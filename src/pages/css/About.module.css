@@ -18,9 +18,9 @@
 }
 
 .mainContent {
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
+  margin-top: 150px;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .mainContent h1 {
@@ -37,10 +37,29 @@
 }
 
 .warehouse {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 10px;
-  grid-auto-columns: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.warehouse div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.founders {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.foundersDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -49,5 +68,22 @@
   }
   .heading h3 {
     font-size: 1.5rem;
+  }
+  .founders {
+    flex-direction: column;
+  }
+}
+
+@supports (display: grid) {
+  .warehouse {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 2rem;
+  }
+
+  .warehouseItem,
+  .warehouse {
+    width: auto;
+    margin: 1%;
   }
 }

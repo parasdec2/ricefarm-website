@@ -3,18 +3,8 @@ import styles from "./css/Catalog.module.css";
 import { MobileNav, Products, ContactUs } from "../Components/index";
 
 function Catalog() {
-  const [selected, setSelected] = useState("");
   const [navOpen, setNavOpen] = useState(false);
   const myRef = useRef(null);
-  const [mobileDevice, setMobileDevice] = useState(true);
-
-  const hasWindow = typeof window !== "undefined";
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    if (width < 768) setMobileDevice(true);
-    else setMobileDevice(false);
-  }, [hasWindow]);
 
   const products = [
     {
@@ -43,68 +33,70 @@ function Catalog() {
     },
   ];
 
-  const [varieties, setVarieties] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
-  const filter = (category) => {
-    var filteredProduct = products.filter((e) => e.category === category);
-    console.log(filteredProduct);
-    setFilteredProducts(filteredProduct);
-  };
-
-  useEffect(() => {
-    const variety = [];
-    variety.push("Steam");
-    variety.push("Sella");
-    setVarieties(variety);
-    setSelected(variety[0]);
-    var filteredProduct = products.filter((e) => e.category === variety[0]);
-    console.log(filteredProduct);
-    setFilteredProducts(filteredProduct);
-  }, []);
-
-  const updateSelected = (category) => {
-    setSelected(category);
-    filter(category);
-  };
   return (
     <div className={styles.container}>
       <MobileNav menu={setNavOpen} contact={myRef} />
       <div className={styles.content}>
         <div
-          className={styles.left}
+          className={styles.distribution}
           style={navOpen ? { marginTop: "350px" } : {}}
         >
-          <h1 className={styles.title}>Products</h1>
-          <div className={styles.varieties}>
-            <h3>Varieties</h3>
-            <div className={styles.variety}>
-              {varieties.map((variety, index) => (
-                <p
-                  id={index}
-                  className={styles.varietyName}
-                  style={
-                    selected.toLowerCase() === variety.toLowerCase()
-                      ? {
-                          backgroundColor: "lightgreen",
-                          borderRadius: "20px",
-                        }
-                      : {}
-                  }
-                  onClick={() => updateSelected(variety)}
-                >
-                  <span>{variety}</span>
-                </p>
-              ))}
-            </div>
-          </div>
+          <h1 className={styles.title}>Distributions</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
+            numquam voluptatum quibusdam dolor cum dolores illo provident
+            labore, voluptatem praesentium accusamus amet nostrum officiis
+            beatae voluptates, ab adipisci consequuntur?Lorem, ipsum dolor sit
+            amet consectetur adipisicing elit. Tenetur vero esse rerum nostrum
+            necessitatibus consequuntur dicta nemo corrupti laboriosam eum?
+            Pariatur sint totam dolorum eligendi saepe eius quasi commodi
+            aperiam!
+          </p>
         </div>
-        <div
-          className={styles.right}
-          style={navOpen && !mobileDevice ? { marginTop: "350px" } : {}}
-        >
-          <h1 className={styles.title}>Catalogue Page</h1>
-          <Products products={filteredProducts} />
+        <br />
+        <hr />
+
+        <div className={styles.products}>
+          <h1 className={styles.title}>Our Products</h1>
+          <Products products={products} />
+        </div>
+        <br />
+        <hr />
+        <div className={styles.brandings}>
+          <h1 className={styles.title}>Our Brands</h1>
+          <h3>Brand 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
+            numquam voluptatum quibusdam dolor cum dolores illo provident
+            labore, voluptatem praesentium accusamus amet nostrum officiis
+            beatae voluptates, ab adipisci consequuntur?Lorem, ipsum dolor sit
+            amet consectetur adipisicing elit. Tenetur vero esse rerum nostrum
+            necessitatibus consequuntur dicta nemo corrupti laboriosam eum?
+            Pariatur sint totam dolorum eligendi saepe eius quasi commodi
+            aperiam!
+          </p>
+          <h3>Brand 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
+            numquam voluptatum quibusdam dolor cum dolores illo provident
+            labore, voluptatem praesentium accusamus amet nostrum officiis
+            beatae voluptates, ab adipisci consequuntur?Lorem, ipsum dolor sit
+            amet consectetur adipisicing elit. Tenetur vero esse rerum nostrum
+            necessitatibus consequuntur dicta nemo corrupti laboriosam eum?
+            Pariatur sint totam dolorum eligendi saepe eius quasi commodi
+            aperiam!
+          </p>
+          <h3>Brand 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
+            numquam voluptatum quibusdam dolor cum dolores illo provident
+            labore, voluptatem praesentium accusamus amet nostrum officiis
+            beatae voluptates, ab adipisci consequuntur?Lorem, ipsum dolor sit
+            amet consectetur adipisicing elit. Tenetur vero esse rerum nostrum
+            necessitatibus consequuntur dicta nemo corrupti laboriosam eum?
+            Pariatur sint totam dolorum eligendi saepe eius quasi commodi
+            aperiam!
+          </p>
         </div>
       </div>
       <div ref={myRef}>
