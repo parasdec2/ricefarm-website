@@ -33,6 +33,39 @@ function Catalog() {
     },
   ];
 
+  window.addEventListener("scroll", () => {
+    function animate() {
+      var elements;
+      var windowHeight;
+
+      function init() {
+        elements = document.querySelectorAll(".hidden");
+        windowHeight = window.innerHeight;
+      }
+
+      function checkPosition() {
+        for (var i = 0; i < elements.length; i++) {
+          var element = elements[i];
+          var positionFromTop = elements[i].getBoundingClientRect().top;
+
+          if (positionFromTop - windowHeight <= 60) {
+            element.classList.add("animate__animated");
+            element.classList.add("animate__fadeIn");
+
+            element.classList.remove("hidden");
+          }
+        }
+      }
+
+      window.addEventListener("scroll", checkPosition);
+      window.addEventListener("resize", init);
+
+      init();
+      checkPosition();
+    }
+    animate();
+  });
+
   return (
     <div className={styles.container}>
       <MobileNav menu={setNavOpen} contact={myRef} />
@@ -41,8 +74,13 @@ function Catalog() {
           className={styles.distribution}
           style={navOpen ? { marginTop: "350px" } : {}}
         >
-          <h1 className={styles.title}>Distributions</h1>
-          <p>
+          <h1
+            className={styles.title}
+            className="animate__animated animate__fadeIn"
+          >
+            Distributions
+          </h1>
+          <p className="animate__animated animate__fadeIn">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
             numquam voluptatum quibusdam dolor cum dolores illo provident
             labore, voluptatem praesentium accusamus amet nostrum officiis
@@ -57,15 +95,20 @@ function Catalog() {
         <hr />
 
         <div className={styles.products}>
-          <h1 className={styles.title}>Our Products</h1>
+          <h1
+            className={styles.title}
+            className="animate__animated animate__fadeIn"
+          >
+            Our Products
+          </h1>
           <Products products={products} />
         </div>
         <br />
         <hr />
         <div className={styles.brandings}>
           <h1 className={styles.title}>Our Brands</h1>
-          <h3>Brand 1</h3>
-          <p>
+          <h3 className="hidden">Brand 1</h3>
+          <p className="hidden">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
             numquam voluptatum quibusdam dolor cum dolores illo provident
             labore, voluptatem praesentium accusamus amet nostrum officiis
@@ -75,8 +118,8 @@ function Catalog() {
             Pariatur sint totam dolorum eligendi saepe eius quasi commodi
             aperiam!
           </p>
-          <h3>Brand 1</h3>
-          <p>
+          <h3 className="hidden">Brand 1</h3>
+          <p className="hidden">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
             numquam voluptatum quibusdam dolor cum dolores illo provident
             labore, voluptatem praesentium accusamus amet nostrum officiis
@@ -86,8 +129,8 @@ function Catalog() {
             Pariatur sint totam dolorum eligendi saepe eius quasi commodi
             aperiam!
           </p>
-          <h3>Brand 1</h3>
-          <p>
+          <h3 className="hidden">Brand 1</h3>
+          <p className="hidden">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
             numquam voluptatum quibusdam dolor cum dolores illo provident
             labore, voluptatem praesentium accusamus amet nostrum officiis

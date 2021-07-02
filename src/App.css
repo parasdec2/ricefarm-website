@@ -180,6 +180,10 @@
   animation-name: fadeIn;
 }
 .animate__animated.animate__fadeIn {
-  --animate-duration: 3000ms;
+  --animate-duration: 5000ms;
   /* --animate-delay: 20s; */
 }
+
+/* .hidden {
+  display: none;
+} */

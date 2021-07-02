@@ -10,7 +10,7 @@ function Products({ products }) {
               <div className={styles.image}>
                 <ProductMedia images={item.image} />
               </div>
-              <div className={styles.details}>
+              <div className={styles.details} className="hidden">
                 <span style={{ textAlign: "center" }}>{item.name}</span>
                 <span style={{ textAlign: "center" }}>{item.category}</span>
                 <span style={{ textAlign: "center" }}>{item.quantity}</span>

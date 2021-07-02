@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./css/Home.module.css";
 import { MobileNav, ContactUs } from "../Components/index";
 import bg from "../bg.jpeg";
@@ -8,6 +8,7 @@ function Home() {
   const myRef = useRef(null);
 
   const [navOpen, setNavOpen] = useState(false);
+  const [showStats, setShowStats] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -39,7 +40,9 @@ function Home() {
         </div>
         <div className={styles.maintext}>
           <div className={styles.contentDiv}>
-            <h2 className="animate__animated animate__fadeIn">Who we are?</h2>
+            <h2 className="animate__animated animate__fadeIn">
+              <span className={styles.subHeading}>Who we are</span>
+            </h2>
             <p className="animate__animated animate__fadeIn">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Quibusdam corporis iure tempore modi soluta voluptatem dignissimos
@@ -51,7 +54,9 @@ function Home() {
             </p>
           </div>
           <div className={styles.contentDiv}>
-            <h2 className="animate__animated animate__fadeIn">Our History</h2>
+            <h2 className="animate__animated animate__fadeIn">
+              <span className={styles.subHeading}>Our History</span>
+            </h2>
             <p className="animate__animated animate__fadeIn">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Quibusdam corporis iure tempore modi soluta voluptatem dignissimos
@@ -61,35 +66,41 @@ function Home() {
               reiciendis ipsum esse non in ullam illo, maiores id harum earum
               quas laudantium vero quidem dolorem consequatur consectetur!
             </p>
-            <div className={styles.stats}>
-              <div className={styles.statsItem}>
-                <span>
-                  <CountUp start={0} end={100} delay={1} />+
-                </span>
-                <h2>Customers</h2>
+            <button onClick={() => setShowStats(true)}>Show</button>
+            {showStats && (
+              <div className={styles.stats}>
+                <div className={styles.statsItem}>
+                  <span>
+                    <CountUp start={0} end={100} delay={1} />+
+                  </span>
+                  <h2>Customers</h2>
+                </div>
+                <div className={styles.statsItem}>
+                  <span>
+                    <CountUp start={0} end={100} delay={1} />+
+                  </span>
+                  <h2>Years</h2>
+                </div>
+                <div className={styles.statsItem}>
+                  <span>
+                    <CountUp start={0} end={100} delay={1} />+
+                  </span>
+                  <h2>Employees</h2>
+                </div>
+                <div className={styles.statsItem}>
+                  <span>
+                    <CountUp start={0} end={100} delay={1} />+
+                  </span>
+                  <h2>Countries</h2>
+                </div>
               </div>
-              <div className={styles.statsItem}>
-                <span>
-                  <CountUp start={0} end={100} delay={1} />+
-                </span>
-                <h2>Years</h2>
-              </div>
-              <div className={styles.statsItem}>
-                <span>
-                  <CountUp start={0} end={100} delay={1} />+
-                </span>
-                <h2>Employees</h2>
-              </div>
-              <div className={styles.statsItem}>
-                <span>
-                  <CountUp start={0} end={100} delay={1} />+
-                </span>
-                <h2>Countrues</h2>
-              </div>
-            </div>
+            )}
           </div>
+          {/* <OurServices /> */}
           <div className={styles.contentDiv}>
-            <h2 className="animate__animated animate__fadeIn">Our Services</h2>
+            <h2 className="animate__animated animate__fadeIn">
+              <span className={styles.subHeading}>Our Services</span>
+            </h2>
             <p className="animate__animated animate__fadeIn">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Quibusdam corporis iure tempore modi soluta voluptatem dignissimos
@@ -116,6 +127,11 @@ function Home() {
                 perspiciatis fuga ad deleniti, esse recusandae optio, asperiores
                 consequuntur eos odit placeat.
               </p>
+              <div className={styles.packets}>
+                <div>
+                  <img width="200px" height="200px" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

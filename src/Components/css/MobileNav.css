@@ -3,11 +3,7 @@
   margin: auto;
   background-color: rgba(192, 192, 192, 0.6);
   background-color: rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #1a012e;
   color: rgb(192, 192, 192);
   position: fixed;
   z-index: 10;
@@ -15,78 +11,144 @@
 
 .topnav {
   overflow: hidden;
-  /* background-color: #333; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  padding: 5px;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
-.topnav #myLinks {
-  display: none;
+.navLogo {
+  cursor: pointer;
+  text-transform: capitalize;
+  font-weight: bold;
 }
 
-.topnav a,
 .topnav p {
   color: white;
-  padding: 14px 16px;
+  padding: 10px;
   text-decoration: none;
-  font-size: 17px;
   display: block;
+  text-align: center;
+  cursor: pointer;
 }
-.topnav a:hover,
+
 .topnav p:hover {
-  background-color: #ddd;
+  background-color: whitesmoke;
+  border-radius: 20px;
   color: black;
 }
 
-.topnav p {
-  cursor: pointer;
+@media (min-width: 772.5px) and (max-width: 900px) {
+  .navDesktop .navLogo span {
+    font-size: 1.2rem;
+  }
 }
 
-.topnav .icon {
-  /* background: black; */
-  display: block;
-  position: absolute;
-  right: 5%;
-  top: 45px;
-  cursor: pointer;
+@media (min-width: 900.5px) {
+  .navDesktop .navLogo span {
+    font-size: 1.5rem;
+    margin-left: 10px;
+  }
 }
 
-.active {
-  background-color: #04aa6d;
-  color: white;
+@media (min-width: 769px) {
+  .mobile-container .navMobile {
+    display: none;
+  }
+  .navMobile > * {
+    display: none;
+  }
+
+  .navDesktop {
+    display: block;
+  }
+
+  .navDesktop {
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navDesktop .navLinks {
+    /* background-color: wheat; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .topnav .icon {
+    display: none;
+  }
+  .navDesktop .navLogo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-.container {
-  display: inline-block;
-  cursor: pointer;
-}
+@media (max-width: 768.5px) {
+  .navMobile {
+    display: block;
+  }
+  .mobile-container .navDesktop {
+    display: none;
+  }
+  .navDesktop > * {
+    display: none;
+  }
 
-.bar1,
-.bar2,
-.bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: #333;
-  background-color: #04aa6d;
-  background-color: rgb(192, 192, 192);
+  .navMobile .navLogo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .navMobile .navLogo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 
-  margin: 6px 0;
-  transition: 0.4s;
-}
+  .topnav #myLinks {
+    display: none;
+  }
 
-.change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
-}
+  .topnav .icon {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 45px;
+    cursor: pointer;
+  }
 
-.change .bar2 {
-  opacity: 0;
-}
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    background-color: #04aa6d;
+    background-color: rgb(192, 192, 192);
 
-.change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-8px, -8px);
-  transform: rotate(45deg) translate(-8px, -8px);
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .change .bar2 {
+    opacity: 0;
+  }
+
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
 }

@@ -11,10 +11,16 @@ function MobileNav({ menu, contact }) {
     var x = document.getElementById("myLinks");
     if (x.style.display === "block") {
       x.style.display = "none";
+      var width = window.innerWidth;
       menu(false);
     } else {
       x.style.display = "block";
-      menu(true);
+      var width = window.innerWidth;
+      if (width > 768) {
+        menu(false);
+      } else {
+        menu(true);
+      }
     }
   }
   const executeScroll = () => {
@@ -23,22 +29,32 @@ function MobileNav({ menu, contact }) {
   };
   return (
     <div className="mobile-container">
-      <div className="topnav">
-        <div
-          onClick={() => history.push("/")}
-          style={{
-            backgroundImage: `url(${logo})`,
-            backgroundRepeat: "no-repeat",
-            height: "80px",
-            width: "80px",
-            objectFit: "cover",
-            cursor: "pointer",
-          }}
-        ></div>
-        <div id="myLinks">
-          <a href="/">Home</a>
-          <a href="/catalogue">Products</a>
-          <a href="/aboutus">About</a>
+      <div className="topnav navMobile">
+        <div onClick={() => history.push("/")} className="navLogo">
+          <img src={logo} height="70px" />
+          <span>Punjab food stuff trading l.l.c</span>
+        </div>
+        <div id="myLinks" className="navLinks">
+          <p onClick={() => history.push("/")}>Home</p>
+          <p onClick={() => history.push("/catalogue")}>Products</p>
+          <p onClick={() => history.push("/aboutus")}>About</p>
+          <p onClick={executeScroll}>Contact Us</p>
+        </div>
+        <div className={change ? "icon" : "icon change"} onClick={myFunction}>
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
+        </div>
+      </div>
+      <div className="topnav navDesktop">
+        <div onClick={() => history.push("/")} className="navLogo">
+          <img src={logo} height="70px" />
+          <span>Punjab food stuff trading l.l.c</span>
+        </div>
+        <div id="myLinks" className="navLinks">
+          <p onClick={() => history.push("/")}>Home</p>
+          <p onClick={() => history.push("/catalogue")}>Products</p>
+          <p onClick={() => history.push("/aboutus")}>About</p>
           <p onClick={executeScroll}>Contact Us</p>
         </div>
         <div className={change ? "icon" : "icon change"} onClick={myFunction}>
