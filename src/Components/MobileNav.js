@@ -1,5 +1,5 @@
 import "./css/MobileNav.css";
-import logo from "../logo.svg";
+import logo from "../logo.png";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -11,7 +11,6 @@ function MobileNav({ menu, contact }) {
     var x = document.getElementById("myLinks");
     if (x.style.display === "block") {
       x.style.display = "none";
-      var width = window.innerWidth;
       menu(false);
     } else {
       x.style.display = "block";
@@ -31,7 +30,7 @@ function MobileNav({ menu, contact }) {
     <div className="mobile-container">
       <div className="topnav navMobile">
         <div onClick={() => history.push("/")} className="navLogo">
-          <img src={logo} height="70px" />
+          <img src={logo} alt="Punjab food stuff trading l.l.c" height="70px" />
           <span>Punjab food stuff trading l.l.c</span>
         </div>
         <div id="myLinks" className="navLinks">
@@ -48,7 +47,7 @@ function MobileNav({ menu, contact }) {
       </div>
       <div className="topnav navDesktop">
         <div onClick={() => history.push("/")} className="navLogo">
-          <img src={logo} height="70px" />
+          <img src={logo} alt="Punjab food stuff trading l.l.c" height="70px" />
           <span>Punjab food stuff trading l.l.c</span>
         </div>
         <div id="myLinks" className="navLinks">

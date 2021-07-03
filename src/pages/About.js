@@ -1,55 +1,68 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import styles from "./css/About.module.css";
 import { MobileNav, ContactUs } from "../Components/index";
 
 function About() {
   const [navOpen, setNavOpen] = useState(false);
   const myRef = useRef(null);
-  const [mobile, setMobile] = useState(false);
-  const [tab, setTab] = useState(false);
-  const [desk, setDesk] = useState(false);
-  const hasWindow = typeof window !== "undefined";
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    if (width < 768 && width > 498) {
-      setTab(true);
-      setMobile(false);
-    } else if (width <= 498) {
-      setTab(false);
-      setMobile(true);
-    }
-  }, [hasWindow]);
 
   window.addEventListener("scroll", () => {
     function animate() {
-      var elements;
+      var content;
+      var heading;
       var windowHeight;
 
       function init() {
-        elements = document.querySelectorAll(".hidden");
+        content = document.querySelectorAll(".hiddenC");
+        heading = document.querySelectorAll(".hiddenH");
         windowHeight = window.innerHeight;
       }
 
-      function checkPosition() {
-        for (var i = 0; i < elements.length; i++) {
-          var element = elements[i];
-          var positionFromTop = elements[i].getBoundingClientRect().top;
+      function checkElemets() {
+        if (content.length < 1 && heading.length < 1) {
+          window.removeEventListener("scroll", checkPosition);
+          window.removeEventListener("scroll", checkElemets);
+        }
+      }
 
-          if (positionFromTop - windowHeight <= 60) {
-            element.className = "animate__animated animate__fadeIn";
+      function checkPosition() {
+        for (var i = 0; i < heading.length; i++) {
+          var elementH = heading[i];
+          var positionFromTopH = heading[i].getBoundingClientRect().top;
+          if (
+            positionFromTopH - windowHeight <= -windowHeight * 0.3 &&
+            positionFromTopH !== 0
+          ) {
+            elementH.classList.remove("hiddenH");
+            elementH.classList.add("animate__animated");
+            elementH.classList.add("animate__slideInLeft");
+          }
+        }
+        for (var j = 0; j < content.length; j++) {
+          var elementC = content[j];
+          var positionFromTopC = content[j].getBoundingClientRect().top;
+          if (
+            positionFromTopC - windowHeight <= -windowHeight * 0.3 &&
+            positionFromTopC !== 0
+          ) {
+            elementC.classList.remove("hiddenC");
+            elementC.classList.add("animate__animated");
+            elementC.classList.add("animate__slideInRight");
           }
         }
       }
 
       window.addEventListener("scroll", checkPosition);
+      window.addEventListener("scroll", checkElemets);
       window.addEventListener("resize", init);
 
       init();
+      checkElemets();
       checkPosition();
     }
     animate();
   });
+
   return (
     <div className={styles.container}>
       <MobileNav menu={setNavOpen} contact={myRef} />
@@ -63,7 +76,6 @@ function About() {
             About Our Company
           </h1>
           <div className={styles.heading}>
-            {/* <h3 className="animate__animated animate__fadeIn">Brief:</h3> */}
             <p className="animate__animated animate__fadeIn">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ad,
               itaque iure ab, temporibus possimus a ut iste labore consequatur
@@ -77,8 +89,8 @@ function About() {
           </div>
           <hr />
           <div className={styles.heading}>
-            <h3 className={"hidden"}>Establishment:</h3>
-            <p className="hidden">
+            <h3 className="hiddenH">Establishment:</h3>
+            <p className="hiddenC">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ad,
               itaque iure ab, temporibus possimus a ut iste labore consequatur
               porro alias, nulla impedit reprehenderit sapiente. Eveniet quis
@@ -89,11 +101,24 @@ function About() {
               laudantium.
             </p>
           </div>
-          <hr />
+          <div className="hiddenC">
+            <div className={styles.warehouse}>
+              <div>
+                <img width="200px" height="200px" alt="img" />
+              </div>
+              <div>
+                <img width="200px" height="200px" alt="img" />
+              </div>
+              <div>
+                <img width="200px" height="200px" alt="img" />
+              </div>
+            </div>
+            <hr />
+          </div>
 
           <div className={styles.heading}>
-            <h3 className="hidden">How do we Work?</h3>
-            <p className="hidden">
+            <h3 className="hiddenH">How do we Work?</h3>
+            <p className="hiddenC">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Veritatis, praesentium saepe! Distinctio, saepe temporibus
               similique tenetur commodi velit exercitationem perspiciatis
@@ -103,28 +128,35 @@ function About() {
           </div>
           {/* <hr /> */}
 
-          <div className={styles.warehouse}>
-            <div>
-              <img width="200px" height="200px" />
+          <div className="hiddenC">
+            <div className={styles.warehouse}>
+              <div>
+                <img width="200px" height="200px" alt="img" />
+              </div>
+              <div>
+                <img width="200px" height="200px" alt="img" />
+              </div>
+              <div>
+                <img width="200px" height="200px" alt="img" />
+              </div>
             </div>
-            <div>
-              <img width="200px" height="200px" />
-            </div>
-            <div>
-              <img width="200px" height="200px" />
-            </div>
+            <hr />
           </div>
-          <hr />
 
           <div className={styles.heading} id="services">
-            <h1 className="hidden" style={{ textAlign: "center" }}>
+            <h1 className="hiddenH" style={{ textAlign: "center" }}>
               Our Founders'
             </h1>
             <div className={styles.founders}>
-              <img width="300px" height="300px" />
+              <img
+                className="hiddenH"
+                width="300px"
+                height="300px"
+                alt="founder1"
+              />
               <div className={styles.foundersDetails}>
-                <h2>Name 1</h2>
-                <p className="hidden">
+                <h2 className="hiddenC">Name 1</h2>
+                <p className="hiddenC">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veritatis, praesentium saepe! Distinctio, saepe temporibus
                   similique tenetur commodi velit exercitationem perspiciatis
@@ -135,10 +167,15 @@ function About() {
             </div>
 
             <div className={styles.founders}>
-              <img width="300px" height="300px" />
+              <img
+                className="hiddenH"
+                width="300px"
+                height="300px"
+                alt="founder2"
+              />
               <div className={styles.foundersDetails}>
-                <h2>Name 2</h2>
-                <p className="hidden">
+                <h2 className="hiddenC">Name 2</h2>
+                <p className="hiddenC">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veritatis, praesentium saepe! Distinctio, saepe temporibus
                   similique tenetur commodi velit exercitationem perspiciatis

@@ -15,12 +15,11 @@
   padding: 20px;
   margin-left: 10%;
   margin-right: 10%;
+  position: relative;
 }
 
 .mainContent {
   margin-top: 150px;
-  /* display: flex;
-  flex-direction: column; */
 }
 
 .mainContent h1 {

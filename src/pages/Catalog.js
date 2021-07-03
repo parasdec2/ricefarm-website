@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import styles from "./css/Catalog.module.css";
 import { MobileNav, Products, ContactUs } from "../Components/index";
 
@@ -35,32 +35,70 @@ function Catalog() {
 
   window.addEventListener("scroll", () => {
     function animate() {
-      var elements;
+      var content;
+      var heading;
+      var product;
       var windowHeight;
 
       function init() {
-        elements = document.querySelectorAll(".hidden");
+        content = document.querySelectorAll(".hiddenC");
+        heading = document.querySelectorAll(".hiddenH");
+        product = document.querySelectorAll(".hiddenP");
         windowHeight = window.innerHeight;
       }
 
+      function checkElemets() {
+        if (content.length < 1 && heading.length < 1 && product.length < 1) {
+          window.removeEventListener("scroll", checkPosition);
+          window.removeEventListener("scroll", checkElemets);
+        }
+      }
+
       function checkPosition() {
-        for (var i = 0; i < elements.length; i++) {
-          var element = elements[i];
-          var positionFromTop = elements[i].getBoundingClientRect().top;
-
-          if (positionFromTop - windowHeight <= 60) {
-            element.classList.add("animate__animated");
-            element.classList.add("animate__fadeIn");
-
-            element.classList.remove("hidden");
+        for (var i = 0; i < heading.length; i++) {
+          var elementH = heading[i];
+          var positionFromTopH = heading[i].getBoundingClientRect().top;
+          if (
+            positionFromTopH - windowHeight <= -windowHeight * 0.3 &&
+            positionFromTopH !== 0
+          ) {
+            elementH.classList.remove("hiddenH");
+            elementH.classList.add("animate__animated");
+            elementH.classList.add("animate__slideInLeft");
+          }
+        }
+        for (var j = 0; j < content.length; j++) {
+          var elementC = content[j];
+          var positionFromTopC = content[j].getBoundingClientRect().top;
+          if (
+            positionFromTopC - windowHeight <= -windowHeight * 0.3 &&
+            positionFromTopC !== 0
+          ) {
+            elementC.classList.remove("hiddenC");
+            elementC.classList.add("animate__animated");
+            elementC.classList.add("animate__slideInRight");
+          }
+        }
+        for (var k = 0; k < product.length; k++) {
+          var elementP = product[k];
+          var positionFromTopP = product[k].getBoundingClientRect().top;
+          if (
+            positionFromTopP - windowHeight <= -windowHeight * 0.3 &&
+            positionFromTopP !== 0
+          ) {
+            elementP.classList.remove("hiddenP");
+            elementP.classList.add("animate__animated");
+            elementP.classList.add("animate__bounceInUp");
           }
         }
       }
 
       window.addEventListener("scroll", checkPosition);
+      window.addEventListener("scroll", checkElemets);
       window.addEventListener("resize", init);
 
       init();
+      checkElemets();
       checkPosition();
     }
     animate();
@@ -74,12 +112,7 @@ function Catalog() {
           className={styles.distribution}
           style={navOpen ? { marginTop: "350px" } : {}}
         >
-          <h1
-            className={styles.title}
-            className="animate__animated animate__fadeIn"
-          >
-            Distributions
-          </h1>
+          <h1 className="animate__animated animate__fadeIn">Distributions</h1>
           <p className="animate__animated animate__fadeIn">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
             numquam voluptatum quibusdam dolor cum dolores illo provident
@@ -95,20 +128,15 @@ function Catalog() {
         <hr />
 
         <div className={styles.products}>
-          <h1
-            className={styles.title}
-            className="animate__animated animate__fadeIn"
-          >
-            Our Products
-          </h1>
+          <h1 className="hiddenH">Our Products</h1>
           <Products products={products} />
         </div>
         <br />
         <hr />
         <div className={styles.brandings}>
-          <h1 className={styles.title}>Our Brands</h1>
-          <h3 className="hidden">Brand 1</h3>
-          <p className="hidden">
+          <h1 className="hiddenH">Our Brands</h1>
+          <h3 className="hiddenH">Brand 1</h3>
+          <p className="hiddenC">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
             numquam voluptatum quibusdam dolor cum dolores illo provident
             labore, voluptatem praesentium accusamus amet nostrum officiis
@@ -118,8 +146,8 @@ function Catalog() {
             Pariatur sint totam dolorum eligendi saepe eius quasi commodi
             aperiam!
           </p>
-          <h3 className="hidden">Brand 1</h3>
-          <p className="hidden">
+          <h3 className="hiddenH">Brand 1</h3>
+          <p className="hiddenC">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
             numquam voluptatum quibusdam dolor cum dolores illo provident
             labore, voluptatem praesentium accusamus amet nostrum officiis
@@ -129,8 +157,8 @@ function Catalog() {
             Pariatur sint totam dolorum eligendi saepe eius quasi commodi
             aperiam!
           </p>
-          <h3 className="hidden">Brand 1</h3>
-          <p className="hidden">
+          <h3 className="hiddenH">Brand 1</h3>
+          <p className="hiddenC">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quis
             numquam voluptatum quibusdam dolor cum dolores illo provident
             labore, voluptatem praesentium accusamus amet nostrum officiis

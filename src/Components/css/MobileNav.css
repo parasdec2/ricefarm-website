@@ -1,8 +1,6 @@
 .mobile-container {
   width: 100%;
   margin: auto;
-  background-color: rgba(192, 192, 192, 0.6);
-  background-color: rgba(0, 0, 0, 0.1);
   background-color: #1a012e;
   color: rgb(192, 192, 192);
   position: fixed;
@@ -150,5 +148,11 @@
   .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
     transform: rotate(45deg) translate(-8px, -8px);
+  }
+}
+
+@media (max-width: 500px) {
+  .navMobile .navLogo span {
+    font-size: 1rem;
   }
 }

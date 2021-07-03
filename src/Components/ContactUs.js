@@ -1,4 +1,4 @@
-function ContactUs() {
+function ContactUs({ home }) {
   return (
     <div className="reach">
       <hr />
@@ -7,13 +7,12 @@ function ContactUs() {
         <div className="address">
           <div>
             <p>
-              {/* <svg
-                src=""
+              <img
+                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTI0IDRjLTcuNzMgMC0xNCA2LjI3LTE0IDE0IDAgMTAuNSAxNCAyNiAxNCAyNnMxNC0xNS41IDE0LTI2YzAtNy43My02LjI3LTE0LTE0LTE0em0wIDE5Yy0yLjc2IDAtNS0yLjI0LTUtNXMyLjI0LTUgNS01IDUgMi4yNCA1IDUtMi4yNCA1LTUgNXoiLz48cGF0aCBkPSJNMCAwaDQ4djQ4aC00OHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4="
                 alt="address"
                 height="40px"
-                // style={{ backgroundColor: "blue" }}
-              />{" "} */}
-              <span>123456</span>
+              />{" "}
+              <span className="reactText">123456</span>
             </p>
 
             <p>
@@ -22,7 +21,7 @@ function ContactUs() {
                 alt="phone"
                 height="40px"
               />{" "}
-              <span>123456</span>
+              <span className="reactText">123456</span>
             </p>
 
             <p>
@@ -32,14 +31,14 @@ function ContactUs() {
                 height="40px"
               />
               {"   "}
-              <span>abc@def.com</span>
+              <span className="reactText">abcdef@gmail.com</span>
             </p>
           </div>
         </div>
         <div className="map">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6862.358382683108!2d76.663461!3d30.685234!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x65ef2d487904b8f3!2sChandigarh%20Engineering%20College-Block%203%2C%20Wilson%20Block!5e0!3m2!1sen!2sus!4v1614437465176!5m2!1sen!2sus"
-            width="400"
+            width="300"
             height="240"
             style={{
               border: "none",

@@ -9,7 +9,7 @@ function Card({ item }) {
       onClick={() => history.push("/catalogue")}
       style={{ cursor: "pointer" }}
     >
-      <img src={item?.image} />
+      <img src={item?.image} alt={item?.name} />
       <div className={styles.content}>
         <h4>{item ? item.name : "Name"}</h4>
       </div>
