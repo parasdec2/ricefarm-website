@@ -36,7 +36,7 @@
 }
 
 .header {
-  width: fit-content;
+  min-width: fit-content;
   font-size: 2.2rem;
   margin-left: auto;
   margin-right: auto;
@@ -63,6 +63,12 @@
     0 3px 0 rgba(253, 253, 253, 0.658), 0 4px 0 rgb(34, 34, 34),
     0 5px 0 rgba(253, 253, 253, 0.658), 0 6px 0 rgba(253, 253, 253, 0.658),
     0 20px 30px rgba(0, 0, 0, 0.767);
+}
+
+.contentDiv p {
+  font-family: "Rubik", sans-serif;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
 }
 
 .mainContent {
@@ -106,7 +112,7 @@
 .subHeading {
   justify-content: center;
   font-family: "Meddon", cursive;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #1a012e;
   margin-left: auto;
   margin-right: auto;
@@ -122,6 +128,13 @@
   }
   .mainContent {
     width: 100%;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 550px) {
+  .contentDiv p {
+    line-height: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 

@@ -3,6 +3,7 @@ import styles from "./css/Home.module.css";
 import { MobileNav, ContactUs } from "../Components/index";
 import bg from "../bg.jpeg";
 import CountUp from "react-countup";
+import ScrollToTop from "../helper/ScrollToTop";
 
 function Home() {
   const myRef = useRef(null);
@@ -44,7 +45,7 @@ function Home() {
           ) {
             elementH.classList.remove("hiddenH");
             elementH.classList.add("animate__animated");
-            elementH.classList.add("animate__slideInLeft");
+            elementH.classList.add("animate__zoomIn");
           }
         }
         for (var j = 0; j < content.length; j++) {
@@ -56,7 +57,7 @@ function Home() {
           ) {
             elementC.classList.remove("hiddenC");
             elementC.classList.add("animate__animated");
-            elementC.classList.add("animate__slideInRight");
+            elementC.classList.add("animate__fadeIn");
           }
         }
       }
@@ -116,7 +117,10 @@ function Home() {
           </h1>
         </div>
         <div className={styles.contentDiv}>
-          <h2 className="animate__animated animate__fadeIn">
+          <h2
+            className="animate__animated animate__fadeIn"
+            style={{ textAlign: "center" }}
+          >
             <span className={styles.subHeading}>Who we are</span>
           </h2>
           <p className="animate__animated animate__fadeIn">
@@ -224,6 +228,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <ScrollToTop />
     </div>
   );
 }

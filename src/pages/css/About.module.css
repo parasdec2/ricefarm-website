@@ -20,18 +20,19 @@
 
 .mainContent {
   margin-top: 150px;
+  font-family: "Rubik", sans-serif;
 }
 
 .mainContent h1 {
-  color: rgb(10, 73, 2);
-  font-size: 3.4rem;
+  color: #1a012e;
+  font-size: 2rem;
   text-align: center;
-  font-family: "Viaoda Libre", cursive;
+  font-family: "Meddon", cursive;
 }
 
 .heading h3 {
-  font-size: 2rem;
-  color: rgb(10, 73, 2);
+  font-size: 1.5rem;
+  color: #1a012e;
   font-family: "Viaoda Libre", cursive;
 }
 

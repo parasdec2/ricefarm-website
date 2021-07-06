@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import styles from "./css/Catalog.module.css";
 import { MobileNav, Products, ContactUs } from "../Components/index";
+import ScrollToTop from "../helper/ScrollToTop";
 
 function Catalog() {
   const [navOpen, setNavOpen] = useState(false);
@@ -64,7 +65,7 @@ function Catalog() {
           ) {
             elementH.classList.remove("hiddenH");
             elementH.classList.add("animate__animated");
-            elementH.classList.add("animate__slideInLeft");
+            elementH.classList.add("animate__zoomIn");
           }
         }
         for (var j = 0; j < content.length; j++) {
@@ -76,7 +77,7 @@ function Catalog() {
           ) {
             elementC.classList.remove("hiddenC");
             elementC.classList.add("animate__animated");
-            elementC.classList.add("animate__slideInRight");
+            elementC.classList.add("animate__fadeIn");
           }
         }
         for (var k = 0; k < product.length; k++) {
@@ -173,6 +174,7 @@ function Catalog() {
       <div ref={myRef}>
         <ContactUs />
       </div>
+      <ScrollToTop />
     </div>
   );
 }

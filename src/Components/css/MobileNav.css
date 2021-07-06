@@ -5,6 +5,7 @@
   color: rgb(192, 192, 192);
   position: fixed;
   z-index: 10;
+  font-family: "Rubik", sans-serif;
 }
 
 .topnav {
@@ -119,7 +120,7 @@
     display: block;
     position: absolute;
     right: 5%;
-    top: 45px;
+    top: 33px;
     cursor: pointer;
   }
 

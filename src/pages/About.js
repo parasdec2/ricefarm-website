@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import styles from "./css/About.module.css";
 import { MobileNav, ContactUs } from "../Components/index";
+import ScrollToTop from "../helper/ScrollToTop";
 
 function About() {
   const [navOpen, setNavOpen] = useState(false);
@@ -35,7 +36,7 @@ function About() {
           ) {
             elementH.classList.remove("hiddenH");
             elementH.classList.add("animate__animated");
-            elementH.classList.add("animate__slideInLeft");
+            elementH.classList.add("animate__zoomIn");
           }
         }
         for (var j = 0; j < content.length; j++) {
@@ -47,7 +48,7 @@ function About() {
           ) {
             elementC.classList.remove("hiddenC");
             elementC.classList.add("animate__animated");
-            elementC.classList.add("animate__slideInRight");
+            elementC.classList.add("animate__fadeIn");
           }
         }
       }
@@ -190,6 +191,7 @@ function About() {
       <div ref={myRef}>
         <ContactUs />
       </div>
+      <ScrollToTop />
     </div>
   );
 }
